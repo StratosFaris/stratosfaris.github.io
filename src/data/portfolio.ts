@@ -1,3 +1,7 @@
+import pierImage from "../assets/images/pier.png";
+import probeImage from "../assets/images/probe.png";
+import scalpelImage from "../assets/images/scalpel.jpg";
+
 export interface ExperienceSection {
   title: string;
   description: string;
@@ -54,7 +58,7 @@ export const PORTFOLIO_DATA = {
     headline: "Engineering a Healthier Future",
     subhead: "Biomedical engineer with two years of design validation and product risk management experience on regulated diagnostic instrumentation. Background spans thermal characterization, root cause analysis, and IVDR-aligned risk documentation, with hands-on signal acquisition instrumentation prototyping.",
     location: "LOC: UNKNOWN",
-    portraitImage: "/src/assets/images/pier.png",
+    portraitImage: pierImage,
     email: "drewjgross13@gmail.com",
     github: "https://github.com/StratosFaris",
     linkedin: "https://linkedin.com/in/drewjgross",
@@ -112,7 +116,7 @@ export const PORTFOLIO_DATA = {
       title: "Automated Basilar Probe",
       institution: "BOSTON UNIVERSITY",
       period: "SEP 2021 - MAY 2022",
-      image: "/src/assets/images/probe.png",
+      image: probeImage,
       description: "Investigated the relationship between cetacean spatial navigation and anthropogenic interference. Fabricated a fiber optic cantilever probe for in vitro measurement of respondent vibrational frequencies along the basilar membrane. Aligned via an aus JENA OPM 212F surgical operating microscope and precision micromanipulators on a leveled vibration-isolation optical bench. Restored an Angstrom-resolution optical resolver for conversion of optomechanical displacement to voltage, with custom Python closed-loop feedback course-correction.",
       tags: ["Fiber Optics", "OPM 212F Microscope", "Micromanipulators", "Optomechanics", "MATLAB & Python"],
       details: {
@@ -170,7 +174,7 @@ float readRefractiveIndexShift() {
       title: "Motorized Scalpel",
       institution: "BOSTON UNIVERSITY",
       period: "JUN 2022",
-      image: "/src/assets/images/scalpel.jpg",
+      image: scalpelImage,
       description: "Prototyped a rotating scalpel mounted on a 2D gantry, translating MATLAB user-defined slicing geometries into autonomous blade trajectory control.",
       tags: ["Gantry Control", "MATLAB", "Kinematics", "Medical Robotics"],
       details: {
