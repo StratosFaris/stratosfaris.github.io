@@ -6,7 +6,7 @@ import pinyVite from '@pinegrow/piny-vite';
 
 export default defineConfig(() => {
   return {
-    base: '/stratosfaris.github.io/',
+    base: '/',
     plugins: [react(), tailwindcss(), pinyVite()],
     resolve: {
       alias: {
