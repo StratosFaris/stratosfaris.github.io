@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm family */
+  --color-rust-black: #301803;
+  --color-teal: #0F999D;
+  --color-teal-light: #13BFC4;
+  --color-rust: #824917;
+  --color-amber: #E9AA00;
+  --color-ember: #F57300;
+  /* Neutral grey backgrounds */
+  --color-abyss: #101213;
+  --color-harbor: #1D1F20;
+  --color-steel: #292C2E;
+  /* Greyscale text family */
+  --color-cream-muted: #A1A1A1;
+  --color-cream-soft: #B8B8B8;
+  --color-cream: #E6E6E6;
+  /* Cool family */
+  --color-cyan-black: #032630;
+  --color-cove: #13576C;
+  --color-coral: #F56681;
+  --color-cyan: #00ADE3;
+  --color-cyan-light: #8EB6FF;
+}
+
+@layer base {
+  :root {
+    --font-sora: 'Sora', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-abyss);
+    color: var(--color-cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+  }
+}
+
+/* Technical grid background */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-tech-dots {
+  background-image: radial-gradient(rgba(0, 173, 227, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism panel styling according to design spec */
+.glass-panel {
+  background: rgba(29, 31, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-interactive {
+  background: rgba(29, 31, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(41, 44, 46, 0.8);
+  border-color: rgba(0, 173, 227, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-abyss);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blush);
+}
