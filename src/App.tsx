@@ -89,49 +89,51 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-abyss text-cream selection:bg-cyan/30 selection:text-cyan-light flex flex-col font-inter">
-      {/* Navbar */}
-      <Navbar
-        onOpenContact={() => setContactOpen(true)}
-        onOpenCv={() => setCvOpen(true)}
-        activeSection={activeSection}
-      />
-
-      {/* Main Content Sections */}
-      <main className="flex-1">
-        <Hero
+      <div className="print:hidden flex flex-col flex-1">
+        {/* Navbar */}
+        <Navbar
+          onOpenContact={() => setContactOpen(true)}
           onOpenCv={() => setCvOpen(true)}
-          onOpenProjects={() => {
-            const projSec = document.getElementById('projects');
-            projSec?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          activeSection={activeSection}
         />
 
-        <Experience onSelectExperience={handleSelectExperience} />
+        {/* Main Content Sections */}
+        <main className="flex-1">
+          <Hero
+            onOpenCv={() => setCvOpen(true)}
+            onOpenProjects={() => {
+              const projSec = document.getElementById('projects');
+              projSec?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
 
-        <Instrumentation onSelectProject={(proj) => setSelectedProject(proj)} />
+          <Experience onSelectExperience={handleSelectExperience} />
 
-        <Skills />
+          <Instrumentation onSelectProject={(proj) => setSelectedProject(proj)} />
 
-        <Education />
-      </main>
+          <Skills />
 
-      {/* Footer */}
-      <Footer onOpenContact={() => setContactOpen(true)} />
+          <Education />
+        </main>
 
-      {/* Interactive Modals */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        {/* Footer */}
+        <Footer onOpenContact={() => setContactOpen(true)} />
+
+        {/* Interactive Modals */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+
+        <ContactModal
+          isOpen={contactOpen}
+          onClose={() => setContactOpen(false)}
+        />
+      </div>
 
       <CvModal
         isOpen={cvOpen}
         onClose={() => setCvOpen(false)}
-      />
-
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={() => setContactOpen(false)}
       />
     </div>
   );

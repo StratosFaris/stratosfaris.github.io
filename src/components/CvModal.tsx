@@ -26,11 +26,11 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl glass-panel rounded-lg border border-cyan/30 shadow-2xl overflow-hidden my-8 max-h-[92vh] flex flex-col">
-        
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200 print:contents">
+      <div className="relative w-full max-w-4xl glass-panel rounded-lg border border-cyan/30 shadow-2xl overflow-hidden my-8 max-h-[92vh] flex flex-col print:contents">
+
         {/* Top Control Bar */}
-        <div className="p-4 bg-harbor border-b border-white/10 flex items-center justify-between shrink-0">
+        <div className="p-4 bg-harbor border-b border-white/10 flex items-center justify-between shrink-0 print:hidden">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs text-cyan font-bold uppercase">
               CURRICULUM VITAE • DREW J. GROSS
@@ -56,10 +56,10 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Printable Document Body */}
-        <div className="p-8 sm:p-12 space-y-8 overflow-y-auto flex-1 bg-abyss text-cream print:bg-white print:text-black">
-          
+        <div className="p-8 sm:p-12 space-y-8 overflow-y-auto flex-1 bg-abyss text-cream print:bg-white print:text-black print:p-0 print:space-y-4 print:overflow-visible">
+
           {/* Header */}
-          <div className="border-b border-white/10 pb-6 print:border-black">
+          <div className="border-b border-white/10 pb-6 print:border-black print:pb-3">
             <h1 className="font-sora text-3xl font-bold text-white print:text-black mb-1">
               {header.name}
             </h1>
@@ -77,7 +77,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                 {header.email}
               </span>
               <span>•</span>
-              <span>GitHub: github.com/drewjgross</span>
+              <span>GitHub: github.com/StratosFaris</span>
             </div>
           </div>
 
@@ -97,9 +97,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               WORK EXPERIENCE
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-6 print:space-y-3">
               {experiences.map((exp) => (
-                <div key={exp.id} className="border-l-2 border-cyan/40 pl-4 space-y-2">
+                <div key={exp.id} className="border-l-2 border-cyan/40 pl-4 space-y-2 print:break-inside-avoid">
                   <div className="flex justify-between items-baseline flex-wrap">
                     <h3 className="font-sora text-base font-bold text-white print:text-black">
                       {exp.title} {exp.role ? `— ${exp.role}` : ''}
@@ -122,9 +122,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                   )}
 
                   {exp.structuredSections && exp.structuredSections.length > 0 && (
-                    <div className="space-y-3 mt-2">
+                    <div className="space-y-3 mt-2 print:space-y-1.5 print:mt-1">
                       {exp.structuredSections.map((sec, sIdx) => (
-                        <div key={sIdx} className="bg-harbor p-3 rounded text-xs print:bg-gray-100 print:text-black">
+                        <div key={sIdx} className="bg-harbor p-3 rounded text-xs print:bg-gray-100 print:text-black print:p-1.5 print:break-inside-avoid">
                           <span className="font-mono font-bold text-ember print:text-blue-900 block mb-1">
                             {sec.title}
                           </span>
@@ -144,7 +144,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                   )}
 
                   {!exp.structuredSections && exp.riskManagement && (
-                    <div className="mt-2 bg-harbor p-3 rounded text-xs print:bg-gray-100 print:text-black">
+                    <div className="mt-2 bg-harbor p-3 rounded text-xs print:bg-gray-100 print:text-black print:p-1.5 print:break-inside-avoid">
                       <span className="font-mono font-bold text-ember print:text-blue-900 block mb-1">
                         {exp.riskManagement.title}
                       </span>
@@ -164,9 +164,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               INSTRUMENTATION &amp; RESEARCH PROJECTS
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-4 print:space-y-2">
               {projects.map((proj) => (
-                <div key={proj.id} className="border-l-2 border-ember/40 pl-4 space-y-1">
+                <div key={proj.id} className="border-l-2 border-ember/40 pl-4 space-y-1 print:break-inside-avoid">
                   <div className="flex justify-between items-baseline flex-wrap">
                     <h3 className="font-sora text-sm font-bold text-white print:text-black">
                       {proj.title}
@@ -189,9 +189,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               TECHNICAL SKILLS
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 print:gap-2 font-mono text-xs">
               {skillCategories.map((cat) => (
-                <div key={cat.id} className="bg-harbor p-3 rounded print:bg-gray-100 print:text-black">
+                <div key={cat.id} className="bg-harbor p-3 rounded print:bg-gray-100 print:text-black print:p-1.5 print:break-inside-avoid">
                   <span className="text-cyan font-bold block mb-1 print:text-blue-900">
                     {cat.name}
                   </span>

@@ -95,3 +95,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-blush);
 }
+
+@media print {
+  @page {
+    margin: 0.4in;
+  }
+
+  body {
+    background: #fff;
+  }
+}
