@@ -1,4 +1,4 @@
-import pierImage from "../assets/images/pier.png";
+import victoryImage from "../assets/images/victory.png";
 import probeImage from "../assets/images/probe.png";
 import scalpelImage from "../assets/images/scalpel.jpg";
 
@@ -57,8 +57,8 @@ export const PORTFOLIO_DATA = {
     title: "Systems Engineer Associate",
     headline: "Engineering a Healthier Future",
     subhead: "Biomedical engineer with two years of design validation and product risk management experience on regulated diagnostic instrumentation. Background spans thermal characterization, root cause analysis, and IVDR-aligned risk documentation, with hands-on signal acquisition instrumentation prototyping.",
-    location: "LOC: UNKNOWN",
-    portraitImage: pierImage,
+    location: "LOC: RTP-NC",
+    portraitImage: victoryImage,
     email: "drewjgross13@gmail.com",
     github: "https://github.com/StratosFaris",
     linkedin: "https://linkedin.com/in/drewjgross",
