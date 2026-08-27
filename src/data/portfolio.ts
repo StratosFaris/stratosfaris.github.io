@@ -1,4 +1,4 @@
-import victoryImage from "../assets/images/victory.jpg";
+import victoryImage from "../assets/images/lab portrait.png";
 import probeImage from "../assets/images/probe.png";
 import scalpelImage from "../assets/images/scalpel.jpg";
 
