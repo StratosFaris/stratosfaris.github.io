@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_DATA, ProjectItem } from '../data/portfolio';
-import { Cpu, ExternalLink, Activity, Sliders, Gauge } from 'lucide-react';
+import { Cpu, ExternalLink, Activity, Sliders, Gauge, MapPin } from 'lucide-react';
 
 interface InstrumentationProps {
   onSelectProject: (project: ProjectItem) => void;
@@ -80,16 +80,6 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                     className="relative z-10 max-h-[350px] lg:max-h-[440px] w-auto max-w-full object-contain rounded drop-shadow-2xl group-hover/img:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute inset-0 z-20 bg-gradient-to-t from-abyss via-transparent to-transparent opacity-60 pointer-events-none" />
-
-                  {/* Bottom Badges Overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between font-mono text-[10px]">
-                    <span className="text-cyan bg-abyss/95 backdrop-blur-md px-2.5 py-1 rounded border border-cyan/30 font-bold">
-                      {proj.institution}
-                    </span>
-                    <span className="text-ember bg-abyss/95 backdrop-blur-md px-2.5 py-1 rounded border border-ember/30">
-                      {proj.period}
-                    </span>
-                  </div>
                 </div>
               )}
 
@@ -98,21 +88,24 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                 <div>
                   {/* Card Title Bar */}
                   <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
-                    <h3 
-                      onClick={() => onSelectProject(proj)}
-                      className="font-sora text-2xl font-bold text-white group-hover:text-cyan transition-colors cursor-pointer flex items-center gap-2"
-                    >
-                      <span>{proj.title}</span>
-                      <ExternalLink className="w-4 h-4 text-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </h3>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h3
+                        onClick={() => onSelectProject(proj)}
+                        className="font-sora text-2xl font-bold text-white group-hover:text-cyan transition-colors cursor-pointer flex items-center gap-2"
+                      >
+                        <span>{proj.title}</span>
+                        <ExternalLink className="w-4 h-4 text-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </h3>
 
-                    <button
-                      onClick={() => onSelectProject(proj)}
-                      className="font-mono text-xs text-cyan hover:text-white bg-cyan/10 hover:bg-cyan/20 px-3 py-1.5 rounded border border-cyan/30 transition-all cursor-pointer flex items-center gap-1.5"
-                    >
-                      <span>VIEW SPECS</span>
-                      <span>→</span>
-                    </button>
+                      <span className="font-mono text-xs text-cyan mt-2 uppercase flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-ember" />
+                        {proj.institution}
+                      </span>
+                    </div>
+
+                    <span className="font-mono text-xs text-ember bg-harbor px-2.5 py-1 rounded border border-ember/30">
+                      {proj.period}
+                    </span>
                   </div>
 
                   <p className="font-inter text-sm text-cream-soft leading-relaxed pt-5 mb-0">
@@ -129,12 +122,16 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                       <div className="flex items-center gap-2">
                         <Activity className="w-4 h-4 text-amber animate-pulse" />
                         <h4 className="font-mono text-xs font-bold text-amber uppercase tracking-wider">
-                          Interactive Basilar Membrane Vibration Tool Demonstration
+                          Interactive Basilar Membrane Vibration Tool Simulation
                         </h4>
                       </div>
-                      <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded border border-teal-light/30">
-                        OPTICAL RESOLVER: 0.12 Å
-                      </span>
+                      <button
+                        onClick={() => onSelectProject(proj)}
+                        className="font-mono text-xs text-cyan hover:text-white bg-cyan/10 hover:bg-cyan/20 px-3 py-1.5 rounded border border-cyan/30 transition-all cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>VIEW SPECS</span>
+                        <span>→</span>
+                      </button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -187,9 +184,13 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                           Interactive SPRi Refractive Index Demonstration
                         </h4>
                       </div>
-                      <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded border border-teal-light/30">
-                        SPRi BIOCHIP-2021
-                      </span>
+                      <button
+                        onClick={() => onSelectProject(proj)}
+                        className="font-mono text-xs text-cyan hover:text-white bg-cyan/10 hover:bg-cyan/20 px-3 py-1.5 rounded border border-cyan/30 transition-all cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>VIEW SPECS</span>
+                        <span>→</span>
+                      </button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -241,9 +242,13 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                           Hardware &amp; Kinematic Performance Parameters
                         </h4>
                       </div>
-                      <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded border border-teal-light/30">
-                        MATLAB AUTONOMOUS CONTROL
-                      </span>
+                      <button
+                        onClick={() => onSelectProject(proj)}
+                        className="font-mono text-xs text-cyan hover:text-white bg-cyan/10 hover:bg-cyan/20 px-3 py-1.5 rounded border border-cyan/30 transition-all cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>VIEW SPECS</span>
+                        <span>→</span>
+                      </button>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
@@ -257,7 +262,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                       </div>
                       <div className="bg-harbor p-3 rounded border border-white/5">
                         <span className="text-cream-muted block text-[10px] uppercase">Actuation</span>
-                        <span className="text-cyan-light font-bold">High-Torque Motor</span>
+                        <span className="text-cyan-light font-bold">Servo Motor</span>
                       </div>
                       <div className="bg-harbor p-3 rounded border border-white/5">
                         <span className="text-cream-muted block text-[10px] uppercase">Slicing Geometry</span>

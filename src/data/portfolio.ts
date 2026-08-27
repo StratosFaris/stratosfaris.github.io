@@ -19,6 +19,7 @@ export interface ExperienceItem {
   badge?: string;
   summary: string;
   bullets?: string[];
+  tags?: string[];
   structuredSections?: ExperienceSection[];
   riskManagement?: ExperienceSection;
   technicalDetails?: string[];
@@ -79,8 +80,8 @@ export const PORTFOLIO_DATA = {
       period: "OCT 2024 - PRESENT",
       summary: "Reverse engineered a biochemical potentiostat for circuit simulation while pursuing NCEES PE licensure.",
       technicalDetails: [
-        "Analyzed operational amplifier topology for high-impedance electrochemical micro-sensor signal conditioning.",
-        "Built analog-to-digital converter (ADC) filtering algorithms for real-time cyclic voltammetry plotting.",
+        "Analyzed PCB components for design intention and configured open-source materials for circuit simulation.",
+        "Familiarized with electrochemical principles behind the detection of biomolecules against a reference electrode.",
         "Preparing for the NCEES Principles and Practice of Engineering (PE) licensure examination."
       ]
     },
@@ -89,6 +90,7 @@ export const PORTFOLIO_DATA = {
       role: "Systems Engineer Associate",
       location: "Tucson, AZ",
       period: "OCT 2022 - OCT 2024",
+      tags: ["ISO 14971", "EU IVDR", "V&V Testing", "Roche Stainer Audit"],
       structuredSections: [
         {
           title: "Benchmark Staining Design Validation",
@@ -133,7 +135,7 @@ export const PORTFOLIO_DATA = {
       period: "SEP 2021 - MAY 2022",
       image: probeImage,
       description: "Investigated the relationship between cetacean spatial navigation and anthropogenic interference. Fabricated a fiber optic cantilever probe for in vitro measurement of respondent vibrational frequencies along the basilar membrane. Aligned via an aus JENA OPM 212F surgical operating microscope and precision micromanipulators on a leveled vibration-isolation optical bench. Restored an Angstrom-resolution optical resolver for conversion of optomechanical displacement to voltage, with custom Python closed-loop feedback course-correction.",
-      tags: ["Fiber Optics", "OPM 212F Microscope", "Optomechanics", "MATLAB & Python"],
+      tags: ["Fiber Optics", "Optomechanics", "MATLAB & Python"],
       details: {
         objective: "Quantify cellular vibrational resonance along the mammalian cochlear basilar membrane under high-frequency mechanical stress.",
         methodology: "Mounted a fiber optic cantilever displacement sensor on multi-axis micrometer positioners atop a spirit-leveled optical bench, coupling gold SMA coaxial transducers to real-time contextual algorithms.",
@@ -160,7 +162,7 @@ export const PORTFOLIO_DATA = {
       institution: "Boston University",
       period: "FEB - MAY 2021",
       description: "Co-prototyped biosensor device for rapid point-of-care sepsis detection, with requirements defined after direct consultation with a practicing nephrologist. Integrated fluidic sampling interface into the hemodialysis circuit via a modified stopcock valve. Implemented Arduino-based signal acquisition to transduce refractive index shifts off a functionalized SPRi biochip into quantifiable infection biomarker data.",
-      tags: ["Biosensors", "Surface Plasmon Resonance", "Arduino / Microfluidics", "Point-of-Care Diagnostics"],
+      tags: ["Biosensors", "Surface Plasmon Resonance", "Arduino", "Fluidics", "Point-of-Care Diagnostics"],
       details: {
         objective: "Enable point-of-care detection of bacteremia (E. coli, S. aureus) during active hemodialysis without external lab incubation.",
         methodology: "Consulted with practicing nephrologist to define requirements for an integrated and functionalized gold-film biosensor.",

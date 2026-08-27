@@ -155,11 +155,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             )}
 
             {/* RIGHT COLUMN: Description + Interactive Vibration Tool / Simulators */}
-            <div className={`${project.image ? 'lg:col-span-7' : 'lg:col-span-12'} flex flex-col justify-between space-y-4`}>
+            <div className={`${project.image ? 'lg:col-span-7' : 'lg:col-span-12'} flex flex-col space-y-4`}>
               {project.id === "proj-03" ? (
                 <div className="space-y-3">
                   {titleHeader}
-                  <p className="font-inter text-sm sm:text-base text-cream-soft leading-relaxed mt-10">
+                  <p className="font-inter text-sm sm:text-base text-cream-soft leading-relaxed mt-5">
                     {project.description}
                   </p>
                 </div>
@@ -169,6 +169,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </p>
               )}
 
+              {/* Interactive/spec block, vertically centered in the remaining column space */}
+              <div className="flex-1 flex flex-col justify-center">
+
               {/* Interactive Vibration Tool for proj-01 */}
               {project.id === "proj-01" && (
                 <div className="bg-harbor p-5 rounded-lg border border-amber/40 shadow-inner">
@@ -176,17 +179,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                     <div className="flex items-center gap-2">
                       <Activity className="w-4 h-4 text-amber animate-pulse" />
                       <h3 className="font-mono text-xs font-bold text-amber uppercase tracking-wider">
-                        Interactive Basilar Vibration Tool
+                        Interactive Basilar Vibration Demonstration
                       </h3>
                     </div>
-                    <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded border border-teal-light/30">
-                      OPTICAL RESOLVER
-                    </span>
                   </div>
 
                   <div className="space-y-4">
                     <div>
-                      <div className="flex justify-between font-mono text-xs text-cream-soft mb-1.5">
+                      <div className="flex justify-between font-mono text-xs text-cream-soft mb-0 mt-2">
                         <span>Acoustic Frequency:</span>
                         <span className="text-cyan-light font-bold">{acousticFrequency} Hz</span>
                       </div>
@@ -226,12 +226,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                     <div className="flex items-center gap-2">
                       <Sliders className="w-4 h-4 text-amber" />
                       <h3 className="font-mono text-xs font-bold text-amber uppercase tracking-wider">
-                        Interactive SPRi Refractive Index Simulator
+                        Interactive SPRi Refractive Index Demonstration
                       </h3>
                     </div>
-                    <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded">
-                      SPRi-2021-BU
-                    </span>
                   </div>
 
                   <div className="space-y-4">
@@ -281,9 +278,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                         Hardware &amp; Motion Control Specs
                       </h3>
                     </div>
-                    <span className="font-mono text-[10px] text-teal-light bg-teal-light/10 px-2 py-0.5 rounded border border-teal-light/30">
-                      MATLAB 2D GANTRY
-                    </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2.5 font-mono text-xs">
@@ -297,7 +291,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                     </div>
                     <div className="bg-harbor p-2.5 rounded border border-white/5">
                       <span className="text-cream-muted block text-[10px] uppercase">Rotation Control</span>
-                      <span className="text-cyan-light font-bold">Autonomous Blade Rig</span>
+                      <span className="text-cyan-light font-bold">Servo Motor to Tangent</span>
                     </div>
                     <div className="bg-harbor p-2.5 rounded border border-white/5">
                       <span className="text-cream-muted block text-[10px] uppercase">Geometry Mapping</span>
@@ -306,6 +300,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   </div>
                 </div>
               )}
+              </div>
             </div>
           </div>
 

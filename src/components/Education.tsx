@@ -38,14 +38,14 @@ export const Education: React.FC = () => {
                     </h3>
                   </div>
 
-                  <p className={`font-mono text-sm sm:text-base text-cream font-medium ${edu.coursework ? 'mb-6 sm:mb-8' : ''}`}>
+                  <p className={`font-mono text-sm sm:text-base text-cream font-medium ${edu.coursework ? 'mb-4 sm:mb-2' : ''}`}>
                     {edu.degree}
                   </p>
 
                   {/* Coursework Block */}
                   {edu.coursework && (
                     <div>
-                      <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                      <div className="flex items-center gap-2 mb-2">
                         <BookOpen className="w-4 h-4 text-teal" />
                         <span className="font-mono text-xs font-bold text-cyan-light uppercase tracking-wider">
                           Relevant Coursework:
@@ -53,7 +53,7 @@ export const Education: React.FC = () => {
                       </div>
 
                       <p className="font-inter text-xs sm:text-sm text-cream-soft leading-relaxed">
-                        {edu.coursework.join(' | ')}.
+                        {edu.coursework.join(' | ')}
                       </p>
                     </div>
                   )}

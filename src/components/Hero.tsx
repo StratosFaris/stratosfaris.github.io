@@ -109,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
                   <div className="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between font-mono text-[10px] text-cyan bg-abyss/90 backdrop-blur-md px-3 py-2 border border-cyan/30 rounded-sm">
                     <span className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      <span>LOC: DOG POUND</span>
+                      <span>SUBJECT STATUS: TRIUMPHANT</span>
                     </span>
                     
                   </div>
