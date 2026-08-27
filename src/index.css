@@ -26,6 +26,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --font-sora: 'Sora', sans-serif;
     --font-inter: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;

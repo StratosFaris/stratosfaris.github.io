@@ -1,5 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolio';
+import { HiChevronDoubleUp } from "react-icons/hi";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -14,12 +15,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Logo */}
-          <a
-            href="#"
-            className="font-sora text-2xl font-bold text-white hover:text-cyan transition-colors"
-          >
-            Drew J. Gross
-          </a>
+            <a
+              href="#"
+              className="font-sora text-2xl font-bold text-white hover:text-cyan transition-colors flex items-center gap-2"
+            >
+              <div className="w-6 h-6 text-cyan flex items-center justify-center">
+                <HiChevronDoubleUp />
+              </div>
+              <span>Drew J. Gross</span>
+            </a>
 
           {/* Copyright Tagline */}
           <div className="font-mono text-xs text-cream-muted tracking-widest text-center">

@@ -122,7 +122,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                       <div className="flex items-center gap-2">
                         <Activity className="w-4 h-4 text-amber animate-pulse" />
                         <h4 className="font-mono text-xs font-bold text-amber uppercase tracking-wider">
-                          Interactive Basilar Membrane Vibration Tool Simulation
+                          Interactive Basilar Membrane Vibration Tool Demonstration
                         </h4>
                       </div>
                       <button
