@@ -46,7 +46,7 @@ export const Education: React.FC = () => {
                   {edu.coursework && (
                     <div>
                       <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                        <BookOpen className="w-4 h-4 text-amber" />
+                        <BookOpen className="w-4 h-4 text-teal" />
                         <span className="font-mono text-xs font-bold text-cyan-light uppercase tracking-wider">
                           Relevant Coursework:
                         </span>

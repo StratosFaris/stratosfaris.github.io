@@ -74,8 +74,6 @@ export const PORTFOLIO_DATA = {
   
   experiences: [
     {
-      id: "exp-01",
-      serialId: "ID-PD-01",
       title: "Professional Development",
       location: "Raleigh, NC",
       period: "OCT 2024 - PRESENT",
@@ -87,17 +85,13 @@ export const PORTFOLIO_DATA = {
       ]
     },
     {
-      id: "exp-02",
-      serialId: "ID-RCH-01",
       title: "Roche Tissue Diagnostics",
       role: "Systems Engineer Associate",
       location: "Tucson, AZ",
       period: "OCT 2022 - OCT 2024",
-      summary: "Led system-level verification, risk management, and metrology development for automated IHC/ISH tissue staining instruments.",
       structuredSections: [
         {
           title: "Benchmark Staining Design Validation",
-          description: "Led system-level verification, risk management, and metrology development for automated IHC/ISH tissue staining instruments.",
           highlights: [
             "Designed and executed onboard slide-heater characterization study for supplier qualification using a custom metrology apparatus to evaluate spatial thermal uniformity and proprietary software-controlled repeatability.",
             "Identified an inbuilt electromagnetic induction artifact, isolating causality to unexpected stainer shutdowns.",
@@ -106,7 +100,6 @@ export const PORTFOLIO_DATA = {
         },
         {
           title: "Product Risk Management",
-          description: "Conducted systematic failure mode analysis across automated IHC, ISH, and special stain instrument platforms, mapping root causes of diagnostic errors, false results, and personal safety risks.",
           highlights: [
             "Collaborated with chemistry teams and instrument manufacturers on implementing available design and process mitigation to reduce downstream risk of false diagnostic results that directly inform patient treatment.",
             "Designed and deployed an automated intake and triage workflow tool that classified and routed incoming requests by priority, improving team throughput and reducing response latency on high-priority items.",
@@ -125,16 +118,16 @@ export const PORTFOLIO_DATA = {
       institution: "Boston University",
       period: "JUN 2022",
       image: scalpelImage,
-      description: "Prototyped a rotating scalpel mounted on a 2D gantry, translating MATLAB user-defined slicing geometries into autonomous blade trajectory control.",
+      description: "Prototyped a rotating scalpel mounted on a 2D gantry, translating MATLAB user-defined slicing geometries into autonomous blade trajectory control via a series of servo motors.",
       tags: ["Gantry Control", "MATLAB", "3D CAD", "Surgical Robotics"],
       details: {
-        objective: "Precision tissue resection along non-linear geometric boundaries with automated cutting depth regulation.",
-        methodology: "Interfaced a high-speed stepper motor micro-gantry with MATLAB inverse kinematics algorithms.",
-        outcomes: "Achieved continuous slicing accuracy within ±0.08 mm across complex curved profiles."
+        objective: "Precision automated incision of tissue-like material along non-linear geometric boundaries.",
+        methodology: "Interfaced servo motor-powered 2D gantry with MATLAB calculus.",
+        outcomes: "Achieved continuous slicing accurate to the defined trajectory."
       }
     },
     {
-      id: "proj-01",
+      id: "proj-02",
       title: "Automated Basilar Probe",
       institution: "Boston University",
       period: "SEP 2021 - MAY 2022",
@@ -142,18 +135,18 @@ export const PORTFOLIO_DATA = {
       description: "Investigated the relationship between cetacean spatial navigation and anthropogenic interference. Fabricated a fiber optic cantilever probe for in vitro measurement of respondent vibrational frequencies along the basilar membrane. Aligned via an aus JENA OPM 212F surgical operating microscope and precision micromanipulators on a leveled vibration-isolation optical bench. Restored an Angstrom-resolution optical resolver for conversion of optomechanical displacement to voltage, with custom Python closed-loop feedback course-correction.",
       tags: ["Fiber Optics", "OPM 212F Microscope", "Optomechanics", "MATLAB & Python"],
       details: {
-        objective: "Quantify cellular vibrational resonance along the mammalian cochlear basilar membrane under high-frequency acoustic stress.",
-        methodology: "Interfaced an aus JENA OPM 212F stereoscopic operating microscope for sub-millimeter visual targeting. Mounted a fiber optic cantilever displacement sensor on multi-axis micrometer positioners atop a spirit-leveled optical bench, coupling gold SMA coaxial transducers to real-time Python spectral decomposition algorithms.",
+        objective: "Quantify cellular vibrational resonance along the mammalian cochlear basilar membrane under high-frequency mechanical stress.",
+        methodology: "Mounted a fiber optic cantilever displacement sensor on multi-axis micrometer positioners atop a spirit-leveled optical bench, coupling gold SMA coaxial transducers to real-time contextual algorithms.",
         outcomes: "Operated the dual-channel resolver's photodiode preamp (-10 to 60 dB gain) and signal amplifier (×1-500 V/V gain) stages with active closed-loop drift compensation, within a 0.75 Hz-150 Hz filtered passband and a ±5V pp output ceiling.",
         codeSnippet: `# MATLAB - Python Closed-Loop Resonance Feedback
-import numpy as np
-import scipy.signal as signal
+            import numpy as np
+            import scipy.signal as signal
 
-def compute_membrane_resonance(disp_voltage, fs=100000, v_to_angstrom=CALIBRATED_PROBE_FACTOR):
-    f, psd = signal.welch(disp_voltage, fs=fs, nperseg=4096)
-    peak_freq = f[np.argmax(psd)]
-    displacement_angstroms = np.max(disp_voltage) * v_to_angstrom
-    return {"resonance_hz": peak_freq, "disp_angstrom": displacement_angstroms}`,
+            def compute_membrane_resonance(disp_voltage, fs=100000, v_to_angstrom=CALIBRATED_PROBE_FACTOR):
+                f, psd = signal.welch(disp_voltage, fs=fs, nperseg=4096)
+                peak_freq = f[np.argmax(psd)]
+                displacement_angstroms = np.max(disp_voltage) * v_to_angstrom
+                return {"resonance_hz": peak_freq, "disp_angstrom": displacement_angstroms}`,
         telemetryData: [
           { label: "Sensor Gain Range (A1)", value: "-10 to 60 dB" },
           { label: "Signal Gain Range (A2)", value: "×1-500 V/V" },
@@ -162,28 +155,28 @@ def compute_membrane_resonance(disp_voltage, fs=100000, v_to_angstrom=CALIBRATED
       }
     },
     {
-      id: "proj-02",
+      id: "proj-01",
       title: "SPRi Bacterial Infection Detection",
       institution: "Boston University",
       period: "FEB - MAY 2021",
       description: "Co-prototyped biosensor device for rapid point-of-care sepsis detection, with requirements defined after direct consultation with a practicing nephrologist. Integrated fluidic sampling interface into the hemodialysis circuit via a modified stopcock valve. Implemented Arduino-based signal acquisition to transduce refractive index shifts off a functionalized SPRi biochip into quantifiable infection biomarker data.",
       tags: ["Biosensors", "Surface Plasmon Resonance", "Arduino / Microfluidics", "Point-of-Care Diagnostics"],
       details: {
-        objective: "Enable real-time detection of bacteremia (E. coli, S. aureus) during active hemodialysis without external lab incubation.",
-        methodology: "Coupled a 632.8nm laser diode array to a functionalized gold-film biosensor slide mounted in a custom microfluidic flow cell.",
-        outcomes: "Demonstrated linear refractive index shift sensitivity down to 10^2 CFU/mL within 14 minutes of sampling.",
+        objective: "Enable point-of-care detection of bacteremia (E. coli, S. aureus) during active hemodialysis without external lab incubation.",
+        methodology: "Consulted with practicing nephrologist to define requirements for an integrated and functionalized gold-film biosensor.",
+        outcomes: "Demonstrated proof-of-concept with a custom stopcocked siphon valve integrated into fluidic circuit. Project continued by group member during their summer internship with the nephrology department.",
         codeSnippet: `// Arduino SPRi Refractive Index Sensor Sampling
-const int LASER_PIN = 9;
-const int SENSOR_PIN = A0;
+            const int LASER_PIN = 9;
+            const int SENSOR_PIN = A0;
 
-float readRefractiveIndexShift() {
-  digitalWrite(LASER_PIN, HIGH);
-  delayMicroseconds(250);
-  int rawValue = analogRead(SENSOR_PIN);
-  float voltage = (rawValue / 1023.0) * 5.0;
-  float delta_n = (voltage - 1.234) * 0.0042; // Transduction factor
-  return delta_n;
-}`
+            float readRefractiveIndexShift() {
+              digitalWrite(LASER_PIN, HIGH);
+              delayMicroseconds(250);
+              int rawValue = analogRead(SENSOR_PIN);
+              float voltage = (rawValue / 1023.0) * 5.0;
+              float delta_n = (voltage - 1.234) * 0.0042; // Transduction factor
+              return delta_n;
+              }`
       }
     }
   ] as ProjectItem[],

@@ -213,18 +213,18 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             </h2>
             <div className="flex flex-col gap-3 print:gap-1.5">
               {education.map((edu, index) => (
-                <div key={index} className="flex justify-between items-start gap-4 font-mono text-xs">
-                  <div className="flex-1 min-w-0">
+                <div key={index} className="justify-between items-start gap-4 font-mono text-xs">
+                  <div className="flex-1 min-w100 flex justify-between items-baseline gap-4 print:flex-wrap">
                     <div>
-                      <span className="font-bold text-white print:text-black">{edu.school}</span> — {edu.degree}
+                      <span className="font-bold text-white print:text-black">{edu.school}</span> - <span className="text-cream print:text-gray-600">{edu.location} | {edu.degree}</span>
+                      </div>
+                      <span className="text-ember print:text-gray-600 shrink-0 flex-row-reverse inline-flex">{titleCaseMonths(edu.graduated)}</span>
                     </div>
                     {edu.coursework && edu.coursework.length > 0 && (
                       <div className="text-cream-muted print:text-gray-600 mt-1">
-                        {edu.coursework.join(', ')}.
+                        {edu.coursework.join(' | ')}.
                       </div>
                     )}
-                  </div>
-                  <span className="text-ember print:text-gray-600 shrink-0 whitespace-nowrap">{edu.graduated}</span>
                 </div>
               ))}
             </div>

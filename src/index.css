@@ -96,6 +96,50 @@
   background: var(--color-blush);
 }
 
+/* Hand-rolled range slider styling. Some Chromium forks (e.g. Opera GX's
+   "Browser color" theming) override the native accent-color property on
+   form controls, so the track/thumb colors are drawn explicitly here
+   instead of relying on accent-color. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-steel);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--color-cyan-light);
+  box-shadow: 0 0 0 3px rgba(142, 182, 255, 0.25);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-steel);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 9999px;
+  background: var(--color-cyan-light);
+  box-shadow: 0 0 0 3px rgba(142, 182, 255, 0.25);
+  cursor: pointer;
+}
+
 @media print {
   @page {
     margin: 0.4in;

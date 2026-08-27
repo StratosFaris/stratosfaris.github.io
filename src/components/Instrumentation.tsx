@@ -115,7 +115,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                     </button>
                   </div>
 
-                  <p className="font-inter text-sm text-cream-soft leading-relaxed mb-5">
+                  <p className="font-inter text-sm text-cream-soft leading-relaxed pt-5 mb-0">
                     {proj.description}
                   </p>
                 </div>
@@ -209,7 +209,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                         />
                         <div className="flex justify-between font-mono text-[10px] text-cream-muted mt-1">
                           <span>10 CFU/mL</span>
-                          <span>5,000 CFU/mL</span>
+                          <span>1,000 CFU/mL</span>
                         </div>
                       </div>
 

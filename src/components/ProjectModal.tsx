@@ -171,7 +171,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
               {/* Interactive Vibration Tool for proj-01 */}
               {project.id === "proj-01" && (
-                <div className="bg-harbor p-5 rounded-lg border border-amber/40 shadow-inner space-y-4">
+                <div className="bg-harbor p-5 rounded-lg border border-amber/40 shadow-inner">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <div className="flex items-center gap-2">
                       <Activity className="w-4 h-4 text-amber animate-pulse" />
@@ -243,7 +243,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                       <input
                         type="range"
                         min="10"
-                        max="5000"
+                        max="1000"
                         step="10"
                         value={bacterialConcentration}
                         onChange={(e) => setBacterialConcentration(Number(e.target.value))}
@@ -251,7 +251,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                       />
                       <div className="flex justify-between font-mono text-[10px] text-cream-muted mt-1">
                         <span>10 CFU/mL</span>
-                        <span>5,000 CFU/mL</span>
+                        <span>1,000 CFU/mL</span>
                       </div>
                     </div>
 
