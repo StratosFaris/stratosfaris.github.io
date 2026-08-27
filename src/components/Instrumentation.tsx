@@ -22,7 +22,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
   const spriSepsisRisk = bacterialConcentration > 200 ? "CRITICAL SEPSIS ELEVATION" : "NORMAL BASELINE";
 
   return (
-    <section id="projects" className="py-24 relative bg-abyss bg-tech-grid">
+    <section id="projects" className="py-16 sm:py-20 relative">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
@@ -69,7 +69,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                     <span>RIG: {proj.id.toUpperCase()}</span>
                   </div>
                   <div className="absolute top-3 right-3 z-30 font-mono text-[9px] leading-none text-ember/80 font-bold pointer-events-none bg-abyss/80 backdrop-blur-md px-2 py-1.5 rounded border border-white/10 flex items-center justify-center text-center">
-                    [ OPTICAL RIG ]
+                    [ SURGICAL RIG ]
                   </div>
 
                   {/* Centered Uncropped Vertical Image */}
@@ -110,7 +110,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                       onClick={() => onSelectProject(proj)}
                       className="font-mono text-xs text-cyan hover:text-white bg-cyan/10 hover:bg-cyan/20 px-3 py-1.5 rounded border border-cyan/30 transition-all cursor-pointer flex items-center gap-1.5"
                     >
-                      <span>VIEW FULL SPECS &amp; DATASET</span>
+                      <span>VIEW SPECS</span>
                       <span>→</span>
                     </button>
                   </div>
@@ -201,7 +201,7 @@ export const Instrumentation: React.FC<InstrumentationProps> = ({ onSelectProjec
                         <input
                           type="range"
                           min="10"
-                          max="5000"
+                          max="1000"
                           step="10"
                           value={bacterialConcentration}
                           onChange={(e) => setBacterialConcentration(Number(e.target.value))}

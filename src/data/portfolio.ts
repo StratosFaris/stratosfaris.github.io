@@ -1,4 +1,4 @@
-import victoryImage from "../assets/images/victory.png";
+import victoryImage from "../assets/images/victory.jpg";
 import probeImage from "../assets/images/probe.png";
 import scalpelImage from "../assets/images/scalpel.jpg";
 
@@ -43,6 +43,14 @@ export interface ProjectItem {
   };
 }
 
+export interface EducationItem {
+  school: string;
+  location: string;
+  degree: string;
+  graduated: string;
+  coursework?: string[];
+}
+
 export interface SkillCategory {
   id: string;
   name: string;
@@ -68,14 +76,14 @@ export const PORTFOLIO_DATA = {
     {
       id: "exp-01",
       serialId: "ID-PD-01",
-      title: "Professional Development & Continuing Education",
+      title: "Professional Development",
       location: "Raleigh, NC",
       period: "OCT 2024 - PRESENT",
-      summary: "Broadened technical and product development breadth by reverse engineering an open-source potentiostat, completing a specialization in product ideation, and pursuing NCEES PE licensure.",
+      summary: "Reverse engineered a biochemical potentiostat for circuit simulation while pursuing NCEES PE licensure.",
       technicalDetails: [
         "Analyzed operational amplifier topology for high-impedance electrochemical micro-sensor signal conditioning.",
         "Built analog-to-digital converter (ADC) filtering algorithms for real-time cyclic voltammetry plotting.",
-        "Synthesized core competencies across medical device software validation, FDA 21 CFR Part 820 quality systems, and NCEES Principles and Practice of Engineering requirements."
+        "Preparing for the NCEES Principles and Practice of Engineering (PE) licensure examination."
       ]
     },
     {
@@ -112,13 +120,27 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
+      id: "proj-03",
+      title: "Motorized Scalpel",
+      institution: "Boston University",
+      period: "JUN 2022",
+      image: scalpelImage,
+      description: "Prototyped a rotating scalpel mounted on a 2D gantry, translating MATLAB user-defined slicing geometries into autonomous blade trajectory control.",
+      tags: ["Gantry Control", "MATLAB", "3D CAD", "Surgical Robotics"],
+      details: {
+        objective: "Precision tissue resection along non-linear geometric boundaries with automated cutting depth regulation.",
+        methodology: "Interfaced a high-speed stepper motor micro-gantry with MATLAB inverse kinematics algorithms.",
+        outcomes: "Achieved continuous slicing accuracy within ±0.08 mm across complex curved profiles."
+      }
+    },
+    {
       id: "proj-01",
       title: "Automated Basilar Probe",
-      institution: "BOSTON UNIVERSITY",
+      institution: "Boston University",
       period: "SEP 2021 - MAY 2022",
       image: probeImage,
       description: "Investigated the relationship between cetacean spatial navigation and anthropogenic interference. Fabricated a fiber optic cantilever probe for in vitro measurement of respondent vibrational frequencies along the basilar membrane. Aligned via an aus JENA OPM 212F surgical operating microscope and precision micromanipulators on a leveled vibration-isolation optical bench. Restored an Angstrom-resolution optical resolver for conversion of optomechanical displacement to voltage, with custom Python closed-loop feedback course-correction.",
-      tags: ["Fiber Optics", "OPM 212F Microscope", "Micromanipulators", "Optomechanics", "MATLAB & Python"],
+      tags: ["Fiber Optics", "OPM 212F Microscope", "Optomechanics", "MATLAB & Python"],
       details: {
         objective: "Quantify cellular vibrational resonance along the mammalian cochlear basilar membrane under high-frequency acoustic stress.",
         methodology: "Interfaced an aus JENA OPM 212F stereoscopic operating microscope for sub-millimeter visual targeting. Mounted a fiber optic cantilever displacement sensor on multi-axis micrometer positioners atop a spirit-leveled optical bench, coupling gold SMA coaxial transducers to real-time Python spectral decomposition algorithms.",
@@ -142,7 +164,7 @@ def compute_membrane_resonance(disp_voltage, fs=100000, v_to_angstrom=CALIBRATED
     {
       id: "proj-02",
       title: "SPRi Bacterial Infection Detection",
-      institution: "BOSTON UNIVERSITY",
+      institution: "Boston University",
       period: "FEB - MAY 2021",
       description: "Co-prototyped biosensor device for rapid point-of-care sepsis detection, with requirements defined after direct consultation with a practicing nephrologist. Integrated fluidic sampling interface into the hemodialysis circuit via a modified stopcock valve. Implemented Arduino-based signal acquisition to transduce refractive index shifts off a functionalized SPRi biochip into quantifiable infection biomarker data.",
       tags: ["Biosensors", "Surface Plasmon Resonance", "Arduino / Microfluidics", "Point-of-Care Diagnostics"],
@@ -161,31 +183,7 @@ float readRefractiveIndexShift() {
   float voltage = (rawValue / 1023.0) * 5.0;
   float delta_n = (voltage - 1.234) * 0.0042; // Transduction factor
   return delta_n;
-}`,
-        telemetryData: [
-          { label: "Detection Limit", value: "100 CFU/mL" },
-          { label: "Assay Latency", value: "< 15 mins" },
-          { label: "Refractive Index Sensitivity", value: "1.42 × 10^-5 RIU" }
-        ]
-      }
-    },
-    {
-      id: "proj-03",
-      title: "Motorized Scalpel",
-      institution: "BOSTON UNIVERSITY",
-      period: "JUN 2022",
-      image: scalpelImage,
-      description: "Prototyped a rotating scalpel mounted on a 2D gantry, translating MATLAB user-defined slicing geometries into autonomous blade trajectory control.",
-      tags: ["Gantry Control", "MATLAB", "Kinematics", "Medical Robotics"],
-      details: {
-        objective: "Precision tissue resection along non-linear geometric boundaries with automated cutting depth regulation.",
-        methodology: "Interfaced a high-speed stepper motor micro-gantry with MATLAB inverse kinematics algorithms.",
-        outcomes: "Achieved continuous slicing accuracy within ±0.08 mm across complex curved profiles.",
-        telemetryData: [
-          { label: "Trajectory Error", value: "±0.08 mm" },
-          { label: "Gantry Velocity", value: "15 mm/s" },
-          { label: "RPM Range", value: "1,200 - 8,000 RPM" }
-        ]
+}`
       }
     }
   ] as ProjectItem[],
@@ -196,27 +194,12 @@ float readRefractiveIndexShift() {
       name: "LABORATORY",
       iconName: "flask",
       skills: [
-        { name: "Automated IHC/ISH", level: 95, details: "Slide heater characterization, reagent dispensing, assay validation" },
-        { name: "Bioinstrumentation", level: 92, details: "Transducer interfacing, signal amplification, noise isolation" },
-        { name: "Fluorescence Microscopy", level: 88, details: "Spectral deconvolution, fluorophore optimization, high-power optics" },
-        { name: "Gel Electrophoresis", level: 85, details: "DNA/RNA sizing, protein separation, agarose & PAGE analysis" },
-        { name: "Plasmid Amplification", level: 84, details: "Bacterial transformation, plasmid purification, cloning workflows" },
-        { name: "RT-PCR", level: 86, details: "Thermal cycling protocols, primer design, quantitative amplification" },
-        { name: "CRISPR/Cas9", level: 82, details: "Guide RNA design, gene editing, cell line validation" }
-      ]
-    },
-    {
-      id: "software",
-      name: "SOFTWARE & ANALYSIS",
-      iconName: "code",
-      skills: [
-        { name: "Signal Processing", level: 90, details: "Filtering, noise reduction, transducer output quantification" },
-        { name: "LIMS & OpenText", level: 84, details: "Laboratory data management, controlled document workflows" },
-        { name: "Minitab & MATLAB", level: 92, details: "Statistical process control, Gage R&R, mathematical modeling" },
-        { name: "Python & C++", level: 94, details: "Data science, hardware drivers, algorithmic data analysis" },
-        { name: "KiCad & Arduino", level: 88, details: "Schematic capture, PCB layout, microcontroller firmware" },
-        { name: "CAD SolidWorks", level: 90, details: "3D mechanical assembly, microfluidic manifold design, drafting" },
-        { name: "Linux & LLM Templating", level: 85, details: "Automated script workflows, technical dossier generation" }
+        { name: "Automated IHC/ISH", details: "Slide heater characterization, reagent dispensing, assay validation, tissue processing" },
+        { name: "Bioinstrumentation", details: "Transducer interfacing, signal amplification, noise isolation" },
+        { name: "Fluorescence Microscopy", details: "Spectral deconvolution, fluorophore optimization" },
+        { name: "Gel Electrophoresis", details: "DNA/RNA sizing, protein separation" },
+        { name: "RT-PCR & Plasmid Amplification", details: "Alkaline lysis, thermal & pressure cycling, primer design, plasmid purification & cloning" },
+        { name: "CRISPR/Cas9", details: "Guide RNA design, gene editing, cell line validation" }
       ]
     },
     {
@@ -224,32 +207,59 @@ float readRefractiveIndexShift() {
       name: "FABRICATION & QUALITY",
       iconName: "settings",
       skills: [
-        { name: "Design Control", level: 92, details: "ISO 13485, 21 CFR Part 820, V&V testing, Traceability matrix" },
-        { name: "Verification & Validation", level: 92, details: "Protocol design, requirements traceability, GMP/GLP compliance" },
-        { name: "Risk Mitigation", level: 95, details: "ISO 14971, FMEA analysis, EU IVDR technical risk dossiers" },
-        { name: "Root Cause Analysis", level: 93, details: "Failure investigation, causal isolation, corrective action" },
-        { name: "Prototyping", level: 94, details: "3D printing, CNC machining, rapid medical device iteration" },
-        { name: "Soldering & Welding", level: 88, details: "Micro-electronics soldering, wire harness assembly" },
-        { name: "Casting & Dilution", level: 86, details: "PDMS microfluidic molding, serial chemical dilution" }
+        { name: "Design Control", details: "ISO 13485, 21 CFR Part 820, V&V testing, Traceability matrix" },
+        { name: "Verification & Validation", details: "Experimental protocol design, requirements traceability, GMP/GLP compliance" },
+        { name: "Risk Mitigation", details: "ISO 14971, FMEA analysis, EU IVDR technical risk dossiers" },
+        { name: "Root Cause Analysis", details: "Failure investigation, causal isolation, corrective action" },
+        { name: "Prototyping", details: "Engineering sketching, CNC machining, rapid iteration" },
+        { name: "CAD SolidWorks", details: "3D mechanical drafting & assembly, 3D printing" }
+      ]
+    },
+        {
+      id: "software",
+      name: "SOFTWARE & ANALYSIS",
+      iconName: "code",
+      skills: [
+        { name: "Signal Processing", details: "Filtering, noise reduction, transducer output quantification" },
+        { name: "LIMS & OpenText", details: "Laboratory data management, controlled document workflows, configuration control" },
+        { name: "Minitab & MATLAB", details: "Mathematical modeling, regression analysis" },
+        { name: "Python & C++", details: "Memory management, object-oriented programming, compilation and debugging" },
+        { name: "KiCad & Arduino", details: "PCB schematic synthesis, microcontroller firmware" },
+        { name: "Linux & LLM Templating", details: "Automated script workflows" }
       ]
     }
   ] as SkillCategory[],
 
-  education: {
-    school: "Boston University",
-    location: "Boston, MA",
-    degree: "Bachelor of Science, Biomedical Engineering",
-    graduated: "GRADUATED 2022",
-    coursework: [
-      "Computational Synthetic Biology",
-      "Device and Diagnostic Design",
-      "Fluid Mechanics",
-      "Materials Processing and Product Development",
-      "Molecular Cell Biology and Biotechnology",
-      "Neurotoxins",
-      "Nucleic Acid Nanotechnology",
-      "Systems Physiology",
-      "Thermodynamics"
-    ]
-  }
+  education: [
+    {
+      school: "University of Maryland",
+      location: "Coursera",
+      degree: "Certificate of Specialization in Product Ideation, Design, and Management",
+      graduated: "COMPLETED 2026",
+      coursework: [
+        "Developing Innovative Ideas for Product Leaders",
+        "Product Management Essentials",
+        "Establishing Product-Market Fit",
+        "Creative Design, Prototyping, and Testing",
+        "Financial Management for Product Leaders"
+      ]
+    },
+    {
+      school: "Boston University",
+      location: "Boston, MA",
+      degree: "Bachelor of Science, Biomedical Engineering",
+      graduated: "GRADUATED 2022",
+      coursework: [
+        "Computational Synthetic Biology",
+        "Device and Diagnostic Design",
+        "Fluid Mechanics",
+        "Materials Processing and Product Development",
+        "Molecular Cell Biology and Biotechnology",
+        "Neurotoxins",
+        "Nucleic Acid Nanotechnology",
+        "Systems Physiology",
+        "Thermodynamics"
+      ]
+    }
+  ] as EducationItem[]
 };

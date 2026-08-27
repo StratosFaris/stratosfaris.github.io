@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
   const { header } = PORTFOLIO_DATA;
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-tech-grid">
+    <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
       {/* Background Radial Light Glows */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-teal/15 rounded-full blur-[140px] pointer-events-none" />
@@ -30,9 +30,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
 
             {/* Headline */}
             <h1 className="font-sora text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-6">
-             <span className="text-cyan-light">Engineering </span>{' '}
+             <span className="text-cyan">Engineering </span>{' '}
               a{<br />}
-              <span className="text-cyan">Healthier Future</span>
+              <span className="text-amber">Healthier Future</span>
             </h1>
 
             {/* Subhead Description */}
@@ -104,14 +104,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
                   <div className="absolute inset-0 z-20 bg-gradient-to-t from-abyss via-transparent to-transparent opacity-70 pointer-events-none" />
 
                   {/* Corner Reticle Ticks inside image */}
-                  
-                  <div className="absolute top-2 right-2 z-30 font-mono text-[9px] leading-none text-ember/80 font-bold pointer-events-none bg-abyss/80 backdrop-blur-md px-2 py-1.5 rounded border border-white/10 flex items-center justify-center text-center">[ LIVE ]</div>
-
+                
                   {/* Micro serial badge in card bottom */}
                   <div className="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between font-mono text-[10px] text-cyan bg-abyss/90 backdrop-blur-md px-3 py-2 border border-cyan/30 rounded-sm">
                     <span className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      <span>LOC: UNKNOWN</span>
+                      <span>LOC: DOG POUND</span>
                     </span>
                     
                   </div>

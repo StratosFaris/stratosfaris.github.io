@@ -25,6 +25,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
     window.print();
   };
 
+  const titleCaseMonths = (period: string) =>
+    period.replace(/[A-Za-z]+/g, (word) => word[0].toUpperCase() + word.slice(1).toLowerCase());
+
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200 print:contents">
       <div className="relative w-full max-w-4xl glass-panel rounded-lg border border-cyan/30 shadow-2xl overflow-hidden my-8 max-h-[92vh] flex flex-col print:contents">
@@ -94,7 +97,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           {/* Professional Experience */}
           <div>
             <h2 className="font-sora text-sm font-bold text-cyan uppercase tracking-wider mb-4 print:text-blue-800">
-              WORK EXPERIENCE
+              EXPERIENCE
             </h2>
 
             <div className="space-y-6 print:space-y-3">
@@ -105,7 +108,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                       {exp.title} {exp.role ? `— ${exp.role}` : ''}
                     </h3>
                     <span className="font-mono text-xs text-ember print:text-gray-600">
-                      {exp.period} | {exp.location}
+                      {exp.location} | {titleCaseMonths(exp.period)}
                     </span>
                   </div>
 
@@ -172,7 +175,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                       {proj.title}
                     </h3>
                     <span className="font-mono text-xs text-ember print:text-gray-600">
-                      {proj.institution} ({proj.period})
+                      {proj.institution} | {titleCaseMonths(proj.period)}
                     </span>
                   </div>
                   <p className="font-inter text-xs text-cream-soft print:text-gray-800">
@@ -208,11 +211,22 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             <h2 className="font-sora text-sm font-bold text-cyan uppercase tracking-wider mb-2 print:text-blue-800">
               EDUCATION
             </h2>
-            <div className="flex justify-between font-mono text-xs">
-              <div>
-                <span className="font-bold text-white print:text-black">{education.school}</span> — {education.degree}
-              </div>
-              <span className="text-ember print:text-gray-600">{education.graduated}</span>
+            <div className="flex flex-col gap-3 print:gap-1.5">
+              {education.map((edu, index) => (
+                <div key={index} className="flex justify-between items-start gap-4 font-mono text-xs">
+                  <div className="flex-1 min-w-0">
+                    <div>
+                      <span className="font-bold text-white print:text-black">{edu.school}</span> — {edu.degree}
+                    </div>
+                    {edu.coursework && edu.coursework.length > 0 && (
+                      <div className="text-cream-muted print:text-gray-600 mt-1">
+                        {edu.coursework.join(', ')}.
+                      </div>
+                    )}
+                  </div>
+                  <span className="text-ember print:text-gray-600 shrink-0 whitespace-nowrap">{edu.graduated}</span>
+                </div>
+              ))}
             </div>
           </div>
 

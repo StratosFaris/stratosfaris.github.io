@@ -93,8 +93,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 {/* Top HUD Frame Header */}
                 <div className="bg-harbor/90 backdrop-blur-md px-3.5 py-2 border-b border-white/10 flex items-center justify-between font-mono text-[11px]">
                   <span className="text-cyan flex items-center gap-1.5 font-bold">
-                    <Microscope className="w-3.5 h-3.5 text-ember" />
-                    <span>OPTICAL SPEC CAPTURE</span>
+                    {project.id === "proj-03" ? (
+                      <Terminal className="w-3.5 h-3.5 text-ember" />
+                    ) : (
+                      <Microscope className="w-3.5 h-3.5 text-ember" />
+                    )}
+                    <span>{"CAPTURE"}</span>
                   </span>
                   <button
                     onClick={() => setIsLightboxOpen(true)}
@@ -414,7 +418,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <div className="flex items-center gap-3">
               <span className="font-bold text-white text-sm sm:text-base">{project.title}</span>
               <span className="hidden sm:inline-block text-ember bg-ember/10 px-2.5 py-0.5 rounded border border-ember/30">
-                FULL UNCOMPRESSED OPTICAL CAPTURE
+                FULL UNCOMPRESSED CAPTURE
               </span>
             </div>
             <button

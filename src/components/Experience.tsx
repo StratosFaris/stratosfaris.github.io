@@ -8,8 +8,6 @@ interface ExperienceProps {
 
 export const Experience: React.FC<ExperienceProps> = ({ onSelectExperience }) => {
   const { experiences } = PORTFOLIO_DATA;
-  const professionalDevelopment = experiences.find((exp) => exp.id === 'exp-01');
-  const workExperiences = experiences.filter((exp) => exp.id !== 'exp-01');
 
   const renderExperienceCard = (exp: ExperienceItem) => (
             <div key={exp.id} className="relative pl-0 md:pl-8 group">
@@ -136,15 +134,8 @@ export const Experience: React.FC<ExperienceProps> = ({ onSelectExperience }) =>
   );
 
   return (
-    <section id="experience" className="py-24 relative bg-abyss">
+    <section id="experience" className="py-16 sm:py-20 relative">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
-
-        {/* Professional Development & Continuing Education */}
-        {professionalDevelopment && (
-          <div className="space-y-12 relative mb-16">
-            {renderExperienceCard(professionalDevelopment)}
-          </div>
-        )}
 
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-16">
@@ -152,13 +143,13 @@ export const Experience: React.FC<ExperienceProps> = ({ onSelectExperience }) =>
             <Microscope className="w-6 h-6" />
           </div>
           <h2 className="font-sora text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Professional Experience
+            Experience
           </h2>
         </div>
 
         {/* Timeline Stack Grid */}
         <div className="space-y-12 relative">
-          {workExperiences.map((exp) => renderExperienceCard(exp))}
+          {experiences.map((exp) => renderExperienceCard(exp))}
         </div>
 
       </div>

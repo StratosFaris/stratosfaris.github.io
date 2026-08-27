@@ -85,7 +85,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   <input
                     type="text"
                     required
-                    placeholder="Dr. Sarah Connor"
+                    placeholder="Lt. Ellen Ripley"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full pl-10 pr-4 py-2.5 rounded bg-harbor border border-white/10 text-white font-inter text-sm focus:outline-none focus:border-cyan transition-colors"
@@ -103,7 +103,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     <input
                       type="email"
                       required
-                      placeholder="sarah@biotech.com"
+                      placeholder="eripley@weyland-yutani.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full pl-10 pr-4 py-2.5 rounded bg-harbor border border-white/10 text-white font-inter text-sm focus:outline-none focus:border-cyan transition-colors"
@@ -119,7 +119,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     <Building className="w-4 h-4 text-cream-muted absolute left-3 top-3" />
                     <input
                       type="text"
-                      placeholder="Apex BioSystems"
+                      placeholder="Weyland-Yutani Corp"
                       value={organization}
                       onChange={(e) => setOrganization(e.target.value)}
                       className="w-full pl-10 pr-4 py-2.5 rounded bg-harbor border border-white/10 text-white font-inter text-sm focus:outline-none focus:border-cyan transition-colors"
@@ -137,9 +137,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   onChange={(e) => setInquiryType(e.target.value)}
                   className="w-full px-4 py-2.5 rounded bg-harbor border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-cyan transition-colors"
                 >
-                  <option value="V&V Systems Engineering">V&amp;V Systems Engineering Collaboration</option>
-                  <option value="IVDR & Risk Management">EU IVDR &amp; Risk Dossier Consulting</option>
-                  <option value="Instrumentation Prototyping">Instrumentation &amp; Biosensor Prototyping</option>
+                  <option value="Engineering Project">Prototype Development Collaboration</option>
+                  <option value="Laboratory Research">Laboratory Research Opportunity</option>
                   <option value="Career & Recruitment">Full-time Career Opportunity</option>
                   <option value="Other Technical Query">Other Technical Query</option>
                 </select>
@@ -152,7 +151,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 <textarea
                   required
                   rows={4}
-                  placeholder="Outline your system parameters or technical inquiry..."
+                  placeholder="Outline your project parameters or technical inquiry..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="w-full p-3 rounded bg-harbor border border-white/10 text-white font-inter text-sm focus:outline-none focus:border-cyan transition-colors resize-none"

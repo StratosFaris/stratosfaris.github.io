@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { PORTFOLIO_DATA } from '../data/portfolio';
-import { Terminal, Code, Wrench, X } from 'lucide-react';
+import { Terminal, Wrench, X, ChartNoAxesGantt } from 'lucide-react';
+import { BsFlask } from "react-icons/bs";
 
 export const Skills: React.FC = () => {
   const { skillCategories } = PORTFOLIO_DATA;
-  const [selectedSkill, setSelectedSkill] = useState<{ categoryName: string; name: string; level: number; details: string } | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<{ categoryName: string; iconName: string; name: string; level: number; details: string } | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -34,13 +35,13 @@ export const Skills: React.FC = () => {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'flask':
-        return <Terminal className="w-4 h-4 text-amber" />;
+        return <BsFlask className="w-4 h-4 text-amber" />;
       case 'code':
-        return <Code className="w-4 h-4 text-teal-light" />;
+        return <ChartNoAxesGantt className="w-4 h-4 text-cyan-light" />;
       case 'settings':
-        return <Wrench className="w-4 h-4 text-cyan-light" />;
+        return <Wrench className="w-4 h-4 text-teal-light" />;
       default:
-        return <Terminal className="w-4 h-4 text-amber" />;
+        return <BsFlask className="w-4 h-4 text-amber" />;
     }
   };
 
@@ -49,9 +50,9 @@ export const Skills: React.FC = () => {
       case 'flask':
         return 'text-amber';
       case 'code':
-        return 'text-teal-light';
-      case 'settings':
         return 'text-cyan-light';
+      case 'settings':
+        return 'text-teal-light';
       default:
         return 'text-amber';
     }
@@ -62,9 +63,9 @@ export const Skills: React.FC = () => {
       case 'flask':
         return 'group-hover:text-amber';
       case 'code':
-        return 'group-hover:text-teal-light';
-      case 'settings':
         return 'group-hover:text-cyan-light';
+      case 'settings':
+        return 'group-hover:text-teal-light';
       default:
         return 'group-hover:text-amber';
     }
@@ -72,7 +73,7 @@ export const Skills: React.FC = () => {
 
   return (
     <>
-    <section id="skills" ref={sectionRef} className="py-16 sm:py-20 relative bg-abyss z-10">
+    <section id="skills" ref={sectionRef} className="py-14 sm:py-16 relative z-10">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
@@ -108,11 +109,11 @@ export const Skills: React.FC = () => {
                       key={skill.name}
                       role="button"
                       tabIndex={0}
-                      onClick={() => setSelectedSkill({ categoryName: cat.name, ...skill })}
+                      onClick={() => setSelectedSkill({ categoryName: cat.name, iconName: cat.iconName, ...skill })}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
-                          setSelectedSkill({ categoryName: cat.name, ...skill });
+                          setSelectedSkill({ categoryName: cat.name, iconName: cat.iconName, ...skill });
                         }
                       }}
                       className="group cursor-pointer py-1.5 px-2.5 rounded hover:bg-steel/60 focus:bg-steel/60 focus:outline-none focus:border-white/20 transition-colors border border-transparent hover:border-white/10 flex flex-col gap-1"
@@ -136,7 +137,7 @@ export const Skills: React.FC = () => {
       <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-md z-50 glass-panel p-4 sm:p-5 rounded-md border border-cyan/40 shadow-2xl animate-in fade-in slide-in-from-bottom-4">
         <div className="flex items-start justify-between gap-3 mb-2">
           <div>
-            <span className="font-mono text-[10px] text-ember uppercase">
+            <span className={`font-mono text-[10px] uppercase ${getCategoryTitleClass(selectedSkill.iconName)}`}>
               {selectedSkill.categoryName}
             </span>
             <h4 className="font-sora text-base sm:text-lg font-bold text-white">
