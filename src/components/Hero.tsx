@@ -103,7 +103,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
                   {/* High-tech gradient overlay */}
                   <div className="absolute inset-0 z-20 bg-gradient-to-t from-abyss via-transparent to-transparent opacity-70 pointer-events-none" />
                     
-                  </div>
                 </div>
               </div>
             </div>
