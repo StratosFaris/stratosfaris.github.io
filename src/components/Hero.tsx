@@ -102,15 +102,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv, onOpenProjects }) => {
                   />
                   {/* High-tech gradient overlay */}
                   <div className="absolute inset-0 z-20 bg-gradient-to-t from-abyss via-transparent to-transparent opacity-70 pointer-events-none" />
-
-                  {/* Corner Reticle Ticks inside image */}
-                
-                  {/* Micro serial badge in card bottom */}
-                  <div className="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between font-mono text-[10px] text-cyan bg-abyss/90 backdrop-blur-md px-3 py-2 border border-cyan/30 rounded-sm">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      <span>SUBJECT STATUS: INVIGORATED</span>
-                    </span>
                     
                   </div>
                 </div>
