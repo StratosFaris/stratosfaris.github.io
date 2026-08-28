@@ -75,7 +75,7 @@ export const PORTFOLIO_DATA = {
   
   experiences: [
     {
-      title: "Professional Development",
+      title: "Independent Research & Development",
       location: "Raleigh, NC",
       period: "OCT 2024 - PRESENT",
       summary: "Reverse engineered a biochemical potentiostat for circuit simulation while pursuing NCEES PE licensure.",
